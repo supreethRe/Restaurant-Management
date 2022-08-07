@@ -1,29 +1,27 @@
 import random
-print("Welcome to star restaurant")
+print("Welcome to star restaurant :)")
 name = input("Enter your name:")
 while True:
       try:
            numb = int(input("Enter your phone number:"))
       except ValueError:
-          print("please enter a valid choice from 0 to 3 ")
+          print("please enter a valid number ")
           continue
 
       if numb<6000000000 :
-         print("please enter a valid choice")
+         print("please enter a valid number")
       elif numb>9999999999:
-         print("please enter a valid choice")
+         print("please enter a valid number")
          continue
       else:
          break
 print(" ")
 choice = 1
+oc = 0
+qty = 0
 toto = 0
-toti = 0
-totu = 0 
-toty = 0 
-tott = 0
-totq = 0
-final = 0
+bill = ''
+pb = ''
 while choice>0:
   print("Press 1 for ordering starters:")
   print("Press 2 for ordering Main coarse:")
@@ -68,18 +66,17 @@ while choice>0:
      if c1==1:
        print("Item:                              price:")
        print("1)Paneer tikka                     ₹110")
-       print("2)Veg kebab                        ₹110")
+       print("2)Veggie kebab                     ₹110")
        print("3)Paneer kebab                     ₹110")
        print("4)Spring roll                      ₹130")
        print("5)Gobi Manchurian                  ₹130")
        print("6)Smoked mushroom                  ₹130")
        print("7)Veg momos                        ₹130") 
        print("8)Corn Chana Chat                  ₹150")
-       print("9)Mixed Vegetable cutlet           ₹150")
+       print("9)Vegetable cutlet                 ₹150")
        print("10)Veg lollipop                    ₹150")
        print("0 to go back to main menu")
        print(" ")
-       oc = 0
        vs = 1
        amt = 0
        t1 = 0
@@ -97,12 +94,36 @@ while choice>0:
              continue
            else:
              break
-         if vs>=1 and vs<=3:
+         if vs==1:
            oc = 110
-         elif vs>=4 and vs<=7:
+           bill ='Paneer tikka      '
+         elif vs==2:
+           oc = 110
+           bill ='Veggie kebab      '   
+         elif vs==3:
+           oc = 110
+           bill ='Paneer kebab      ' 
+         elif vs==4:
           oc = 130
-         elif vs>7 and vs<=10:
+          bill = 'Spring roll       '
+         elif vs==5:
+          oc = 130
+          bill = 'Gobi Manchurian   '
+         elif vs==6:
+          oc = 130
+          bill = 'Smoked mushroom   '
+         elif vs==7:
+          oc = 130
+          bill = 'Veg momos         '
+         elif vs==8:
           oc = 150
+          bill = 'Corn Chana Chat   '
+         elif vs==9:
+          oc = 150
+          bill = 'Vegetable cutlet  '
+         elif vs==10:
+          oc = 150
+          bill = 'Veg lollipop      '
          elif vs==0:
           break
 
@@ -119,12 +140,17 @@ while choice>0:
            else:
              break
          amt = oc*qty
+         h = str(oc)
+         i = str(qty)
+         j = str(amt)
          t1 = t1+amt
+         pb = pb+'\n'+bill+"   "+h+"    "+i+"    "+j
        print(" ")
        f = t1
        toto = f+toto
        if vs==0:
          break
+       
      elif c1==2:
        print("Item:                              price:")
        print("1)Chicken tikka                    ₹160")
@@ -139,7 +165,6 @@ while choice>0:
        print("10)Apollo Fish                     ₹200")
        print("0 to go back to main menu")
        print(" ")
-       oc2 = 0
        nvs = 1
        amt2 = 0
        t2 = 0
@@ -157,32 +182,60 @@ while choice>0:
              continue
            else:
              break
-         if nvs>=1 and nvs<=3:
-           oc2 = 160
-         elif nvs>=4 and nvs<=7:
-          oc2 = 180
-         elif nvs>7 and nvs<=10:
-          oc2 = 200
+         if nvs==1:
+           oc = 160
+           bill = 'Chicken tikka     '
+         elif nvs==2:
+           oc = 160
+           bill = 'Chicken kebab     '
+         elif nvs==3:
+           oc = 160
+           bill = 'Mutton kebab      '
+         elif nvs==4:
+          oc = 180
+          bill = 'Drums of Heaven   '
+         elif nvs==5:
+          oc = 180
+          bill = 'Garlic Chicken    '
+         elif nvs==6:
+          oc = 180
+          bill = 'Smoked Chicken    '
+         elif nvs==7:
+          oc = 180
+          bill = 'Chicken fried momo'
+         elif nvs==8:
+          oc = 200
+          bill = 'Garlic Prawns     '
+         elif nvs==9:
+          oc = 200
+          bill = 'Mughlai Mutton    '
+         elif nvs==10:
+          oc = 200
+          bill = 'Apollo Fish       '
          elif nvs==0:
           break
 
          while True:
            try:
-               qty2 = int(input("Enter the quantity :"))
+               qty = int(input("Enter the quantity :"))
                print(" ")
            except ValueError:
                print("please enter a valid choice ")
                continue
-           if qty2<0 :
+           if qty<0 :
               print("please enter a valid choice")
               continue
            else:
              break
-         amt2 = oc2*qty2
+         amt2 = oc*qty
+         h = str(oc)
+         i = str(qty)
+         j = str(amt2)
          t2 = t2+amt2
+         pb = pb+'\n'+bill+"   "+h+"    "+i+"    "+j
        print(" ")
        f2 = t2
-       toti = f2+toti
+       toto = f2+toto
        if nvs==0:
          break
      elif c1==0:
@@ -215,14 +268,13 @@ while choice>0:
         print("3)Paneer noodles                   ₹150")
         print("4)Veg fried rice                   ₹170")
         print("5)Mushroom noodles                 ₹170")
-        print("6)mushroom fried rice              ₹170")
+        print("6)mushroom rice                    ₹170")
         print("7)Veg hakka noodles                ₹190") 
-        print("8)Kashmiri veg biryani             ₹190")
-        print("9)Vegetable schezwan noodles       ₹190")
+        print("8)Kashmiri biryani                 ₹190")
+        print("9)Schezwan noodles                 ₹190")
         print("10)Curd rice                       ₹100")
         print("0 to go back to main menu")
         print(" ")
-        oc3 = 0
         vm = 1
         amt3 = 0
         t3 = 0
@@ -240,34 +292,60 @@ while choice>0:
               continue
             else:
               break
-          if vm>=1 and vm<=3:
-            oc3 = 150
-          elif vm>=4 and vm<=7:
-           oc3 = 170
-          elif vm>7 and vm<10:
-           oc3 = 190
+          if vm==1:
+            oc = 150
+            bill = 'Paneer fried rice '
+          elif vm==2:
+            oc = 150
+            bill = 'Veg biryani       '
+          elif vm==3:
+            oc = 150
+            bill = 'Paneer noodles    '
+          elif vm==4:
+           oc = 170
+           bill = 'Veg fried rice    '
+          elif vm==5:
+           oc = 170
+           bill = 'Mushroom noodles  '
+          elif vm==6:
+           oc = 170
+           bill = 'Mushroom rice     '
+          elif vm==7:
+           oc = 170
+           bill = 'Veg hakka noodles '
+          elif vm==8:
+           oc = 190
+           bill = 'Kashmiri biryani  '
+          elif vm==9:
+           oc = 190
+           bill = 'Schezwan noodles  '
           elif vm==10:
-           oc3 = 100
+           oc = 100
+           bill = 'Curd rice         '
           elif vm==0:
            break
 
           while True:
             try:
-                qty3 = int(input("Enter the quantity :"))
+                qty = int(input("Enter the quantity :"))
                 print(" ")
             except ValueError:
                 print("please enter a valid choice ")
                 continue
-            if qty3<0 :
+            if qty<0 :
                print("please enter a valid choice")
                continue
             else:
               break
-          amt3 = oc3*qty3
+          h = str(oc)
+          i = str(qty)
+          amt3 = oc*qty
+          j = str(amt3)
           t3 = t3+amt3
+          pb = pb+'\n'+bill+"   "+h+"    "+i+"    "+j
         print(" ")
         f3 = t3
-        totu = f3+totu
+        toto = f3+toto
         if vm==0:
           break
       elif c2==2:
@@ -276,15 +354,14 @@ while choice>0:
         print("2)Egg Noodles                      ₹180")
         print("3)Egg fried rice                   ₹180")
         print("4)Chicken Biryani                  ₹210")
-        print("5)Chicken lollipop Biryani         ₹210")
-        print("6)Special Chicken Biryani          ₹220")
+        print("5)Lollipop Biryani                 ₹210")
+        print("6)Spl Chicken Biryani              ₹220")
         print("7)Fish Biryani                     ₹240")
         print("8)Prawn Biryani                    ₹240") 
         print("9)Mutton Biryani                   ₹260")
         print("10)Kheema Biryani                  ₹280")
         print("0 to go back to main menu")
         print(" ")
-        oc4 = 0
         nvm = 1
         amt4 = 0
         t4 = 0
@@ -302,38 +379,60 @@ while choice>0:
               continue
             else:
               break
-          if nvm>=1 and nvm<=3:
-            oc4 = 180
-          elif nvm>=4 and nvm<=5:
-           oc4 = 210
+          if nvm==1:
+            oc = 180
+            bill = 'Chicken Noodles   '
+          elif nvm==2:
+            oc = 180
+            bill = 'Egg Noodles       '
+          elif nvm==3:
+            oc = 180
+            bill = 'Egg fried rice    '
+          elif nvm==4:
+           oc = 210
+           bill = 'Chicken Biryani   '
+          elif nvm==5:
+           oc = 210
+           bill = 'Lollipop Biryani  '
           elif nvm==6:
-           oc4 = 220
-          elif nvm>=7 and nvm<=8:
-            oc4 = 240
+           oc = 220
+           bill = 'Spl Chick Biryani '
+          elif nvm==7:
+            oc = 240
+            bill = 'Fish Biryani      '
+          elif nvm==8:
+            oc = 240
+            bill = 'Prawn Biryani     '
           elif nvm==9:
-            oc4 = 260
+            oc = 260
+            bill = 'Mutton Biryani    '
           elif nvm==10:
-            oc4 = 280
+            oc = 280
+            bill = 'Kheema Biryani    '
           elif nvm==0:
            break
 
           while True:
             try:
-                qty4 = int(input("Enter the quantity :"))
+                qty = int(input("Enter the quantity :"))
                 print(" ")
             except ValueError:
                 print("please enter a valid choice ")
                 continue
-            if qty4<0 :
+            if qty<0 :
                print("please enter a valid choice")
                continue
             else:
               break
-          amt4 = oc4*qty4
+          amt4 = oc*qty
+          h = str(oc)
+          i = str(qty)
+          j = str(amt4)
           t4 = t4+amt4
+          pb = pb+'\n'+bill+"   "+h+"    "+i+"    "+j
         print(" ")
         f4 = t4
-        toty = f4+toty
+        toto = f4+toto
         if nvm==0:
           break
   elif choice==3:
@@ -359,19 +458,18 @@ while choice>0:
     while c3>0:
       if c3==1:
        print("Item:                              price:")
-       print("1)Vanilla ice cream                ₹70")
-       print("2)Double choclate ice cream        ₹70")
-       print("3)Special Mango Ice cream          ₹90")
-       print("4)Red velvet cake                  ₹100")
-       print("5)Choco lava cake                  ₹100")
-       print("6)Special ice cream                ₹120")
-       print("7)Mughal kheer                     ₹120")
-       print("8)Apple pie                        ₹120") 
-       print("9)Toffee pudding                   ₹140")
-       print("10)Choclate fudge sandae           ₹140") 
+       print("1)Vanilla ice cream                ₹100")
+       print("2)Di-Choco ice cream               ₹100")
+       print("3)Mango Ice cream                  ₹100")
+       print("4)Red velvet cake                  ₹120")
+       print("5)Choco lava cake                  ₹120")
+       print("6)Special ice cream                ₹140")
+       print("7)Mughal kheer                     ₹140")
+       print("8)Apple pie                        ₹140") 
+       print("9)Toffee pudding                   ₹160")
+       print("10)Choclate sandae                 ₹160") 
        print("0 to go back to main menu")
        print(" ")
-       oc5 = 0
        d1 = 1
        amt5 = 0
        t5 = 0
@@ -389,53 +487,76 @@ while choice>0:
              continue
            else:
              break
-         if d1==1 or d1==2:
-           oc5 = 70
+         if d1==1:
+           oc = 100
+           bill = 'Vanilla ice cream '
+         elif d1==2:
+           oc = 100
+           bill = 'Di-Choco ice cream'
          elif d1==3:
-          oc5 = 90
-         elif d1==4 or d1==5:
-          oc5 = 100
-         elif d1>=6 and d1<=8:
-          oc5 = 120
-         elif d1==9 or d1==10:
-           oc5 = 140
+          oc = 100
+          bill = 'Mango Ice cream   '
+         elif d1==4:
+          oc = 120
+          bill = 'Red velvet cake   '
+         elif d1==5:
+          oc = 120
+          bill = 'Choco lava cake   '
+         elif d1==6:
+          oc = 140
+          bill = 'Special ice cream '
+         elif d1==7:
+          oc = 140
+          bill = 'Mughal kheer      '
+         elif d1==8:
+          oc = 140
+          bill = 'Apple pie         '
+         elif d1==9:
+           oc = 160
+           bill = 'Toffee pudding    '
+         elif d1==10:
+           oc = 160
+           bill = 'Chocolate sandae  '
          elif d1==0:
           break
 
          while True:
            try:
-               qty5 = int(input("Enter the quantity :"))
+               qty = int(input("Enter the quantity :"))
                print(" ")
            except ValueError:
                print("please enter a valid choice ")
                continue
-           if qty5<0 :
+           if qty<0 :
               print("please enter a valid choice")
               continue
            else:
              break
-         amt5 = oc5*qty5
+         amt5 = oc*qty
          t5 = t5+amt5
+         h = str(oc)
+         i = str(qty)
+         j = str(amt5)
+         pb = pb+'\n'+bill+"   "+h+"    "+i+"    "+j
        print(" ")
        f5 = t5
-       tott = f5+tott
+       toto = f5+toto
        if d1==0:
          break
       elif c3==2:
         print("Item:                              price:")
-        print("1)sprite                           ₹40")
-        print("2)fanta                            ₹40")
-        print("3)coke                             ₹40")
-        print("4)sweet lime soda                  ₹40")
-        print("5)vanilla milkshake                ₹60")
-        print("6)chocolate milkshake              ₹60")
-        print("7)strawberry milkshake             ₹60")
-        print("8)Butterscotch milkshake           ₹60") 
-        print("9)coffee                           ₹20")
-        print("10)tea                             ₹20") 
+        print("1)Sprite Mojito                    ₹100")
+        print("2)Fantasy Fanta                    ₹100")
+        print("3)Cocacola w/ice                   ₹100")
+        print("4)peri-peri soda                   ₹100")
+        print("5)Vanilla milkshake                ₹120")
+        print("6)Choco milkshake                  ₹120")
+        print("7)Berry milkshake                  ₹120")
+        print("8)Tropical twist                   ₹150") 
+        print("9)Kopi coffee                      ₹100")
+        print("10)Iranian tea                     ₹100") 
         print("0 to go back to main menu")
         print(" ")
-        oc6 = 0
         d2 = 1
         amt6 = 0
         t6 = 0
@@ -453,47 +574,78 @@ while choice>0:
               continue
             else:
               break
-          if d2>=1 and d2<=4:
-            oc6 = 40
-          elif d2>=5 and d2<=8:
-           oc6 = 60
-          elif d2==9 or d2==10:
-           oc6 = 20
+          if d2==1:
+            oc = 100
+            bill = 'Sprite Mojito     '
+          elif d2==2:
+            oc = 100
+            bill = 'Fantasy Fanta     '
+          elif d2==3:
+            oc = 100
+            bill = 'Cocacola w/ice    '
+          elif d2==4:
+            oc = 100
+            bill = 'peri-peri soda    '
+          elif d2==5:
+           oc = 120
+           bill = 'Vanilla milkshake '
+          elif d2==6:
+           oc = 120
+           bill = 'Choco milkshake   '
+          elif d2==7:
+           oc = 120
+           bill = 'Berry milkshake   '
+          elif d2==8:
+           oc = 150
+           bill = 'Tropical twist    '
+          elif d2==9:
+           oc = 100
+           bill = 'Kopi coffee       '
+          elif d2==10:
+           oc = 100
+           bill = 'Iranian tea       '
           elif d2==0:
            break
 
           while True:
             try:
-                qty6 = int(input("Enter the quantity :"))
+                qty = int(input("Enter the quantity :"))
                 print(" ")
             except ValueError:
                 print("please enter a valid choice ")
                 continue
-            if qty6<0 :
+            if qty<0 :
                print("please enter a valid choice")
                continue
             else:
               break
-          amt6 = oc6*qty6
+          amt6 = oc*qty
+          h = str(oc)
+          i = str(qty)
+          j = str(amt6)
           t6 = t6+amt6
+          pb = pb+'\n'+bill+"   "+h+"    "+i+"    "+j
         print(" ")
         f6 = t6
-        totq = f6+totq
+        toto = f6+toto
         if d2==0:
           break
   if choice==0:
-    final = toto+toti+totu+toty+tott+totq
+    print(" ")
     print("Name:",name)
     print("Phone Number:",numb)
-    print(" ")
-    print("Amount:",final)
-    print('GST= ',18/100*final)
-    print('Service Tax=',6/100*final)
-    print('VAT=',14/100*final)
-    print('Total=',(18/100*final)+(6/100*final)+(14/100*final)+final)
+    print("")
+    print("Food Name          price   qty   amount")
+    print(pb)
+    print("")
+    print("Amount: ₹",toto)
+    print('GST= ₹',round(18/100*toto,2))
+    print('Service Tax= ₹',round(6/100*toto,2))
+    print('VAT= ₹',round(14/100*toto,2))
+    print('Total= ₹',round((18/100*toto)+(6/100*toto)+(14/100*toto)+toto,2))
     print("")
     print("Your token for food:",random.randrange(1,100))
     print("Do not forget to collect the bill")
-    print("Visit Us Again")
+    print("Thanks for visiting and make sure to visit us again")
     print("Feel free to send us your reviews at star.restaraunt@gmail.com")
-    print("Thank you")
+ 
